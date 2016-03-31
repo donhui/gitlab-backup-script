@@ -2,8 +2,8 @@
 
 # tips:the user of gitlab must be an administrator
 GIT_SETTINGS = {
-    'gitlab_url': 'http://git.example.com/',
-    'private_token': 'private_token',
+    'gitlab_url': 'https://gitlab.example.com',
+    'private_token': '9koXpg98eAheJpvBs5tK',
     'git_data_path': '/data/git-data/repositories'
 }
 
