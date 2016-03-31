@@ -1,6 +1,6 @@
 # gitlab-backup使用说明
 
-通过使用python-gitlab调用Jenkins API遍历repositories对其进行备份
+通过使用python-gitlab调用gitlab API遍历repositories对其进行备份
 
 1. 安装依赖
 > ```
