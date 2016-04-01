@@ -21,12 +21,6 @@ def get_gitlab_instance():
     return gitlab_server
 
 
-def get_last_commit_id_of_local(git_repo_path):
-    os.chdir(git_repo_path)
-    output = os.popen("git log -n 1 --format=%H")
-    return output.read().strip()
-
-
 def record_log_with_level(logger, output):
     if output.strip().startswith("fatal") or output.strip().startswith("error"):
         logger.error(output.strip())
@@ -35,7 +29,7 @@ def record_log_with_level(logger, output):
 
 
 def backup_git_repo(logger):
-    # get project by paging
+    # backup git repo by paging
     page = 1
     while True:
         backup_git_by_page(page, logger)
@@ -71,9 +65,10 @@ def backup_git_by_page(page, logger):
 
 
 def main():
-
+    # get log level from settings
     log_level = LOG_SETTINGS.get('level')
 
+    # setup logger and handler
     logger = logging.getLogger(__name__)
     logger.setLevel(log_level)
     logger.addHandler(ConsoleHandler())
@@ -86,8 +81,8 @@ def main():
         subject = MAIL_SETTINGS.get('subject')
         logger.addHandler(BufferingSMTPHandler(mailhost, fromaddr, toaddrs, subject, mail_username, mail_password, 10000))
 
+    # backup git repo
     backup_git_repo(logger)
-
 
 if __name__ == "__main__":
     main()
