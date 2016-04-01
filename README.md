@@ -1,6 +1,6 @@
 # gitlab-backup使用说明
 
-通过使用python-gitlab调用gitlab API遍历repositories对其进行备份
+通过使用python-gitlab调用gitlab API遍历repositories对其进行备份。如果git repository在本地存在则进行git fetch，反之则进行git pull。
 
 1. 安装依赖
 > ```
