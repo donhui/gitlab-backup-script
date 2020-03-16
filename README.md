@@ -39,5 +39,4 @@ gitlab仓库备份一般通过rsync的方式，将仓库数据同步到其他机
 > 建议将备份任务放到crontab定时任务中
 > - 01 02 * * * . $HOME/.bash_profile;/usr/bin/python /data/gitlab-backup/gitlab-backup.py>/var/log/gitlab-backup.log 2>&1
 > - git环境变量应追加到.bash_profile文件中的PATH中
-> - 请确保脚本有执行权限，建议执行 chmod 755 *.py*
 > ```
