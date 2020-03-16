@@ -56,7 +56,7 @@ def backup_git_by_page(page, logger):
                     for output in os.popen("git fetch 2>&1"):
                         record_log_with_level(logger, output)
                 else:
-                    for output in os.popen("git clone --mirror %s %s 2>&1" % (project.http_url_to_repo, git_repo_path)):
+                    for output in os.popen("git clone --mirror %s %s 2>&1" % (project.ssh_url_to_repo, git_repo_path)):
                         record_log_with_level(logger, output)
         except:
             logger.exception('Got exception on logger handler:')
@@ -79,10 +79,12 @@ def main():
         fromaddr = MAIL_SETTINGS.get('fromaddr')
         toaddrs = MAIL_SETTINGS.get('toaddrs')
         subject = MAIL_SETTINGS.get('subject')
-        logger.addHandler(BufferingSMTPHandler(mailhost, fromaddr, toaddrs, subject, mail_username, mail_password, 10000))
+        logger.addHandler(
+            BufferingSMTPHandler(mailhost, fromaddr, toaddrs, subject, mail_username, mail_password, 10000))
 
     # backup git repo
     backup_git_repo(logger)
+
 
 if __name__ == "__main__":
     main()
