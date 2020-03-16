@@ -16,8 +16,8 @@
 > ```
 > 修改settings.py中的配置（gitlab相关配置、是否允许邮件通知、smtp相关配置）
 > 注意：
-> - git url目前只支持http协议
 > - gitlab的用户必须是管理员
+> - 机器本地的`ssh key`需要添加到gitlab管理员账号下，以便可以使用ssh协议clone/fetch仓库代码
 > ```
 
 3. 运行脚本
