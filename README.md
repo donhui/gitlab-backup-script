@@ -7,7 +7,7 @@ gitlab仓库备份一般通过rsync的方式，将仓库数据同步到其他机
 
 所以才有了这个项目，专门用来备份git仓库，无惧仓库损坏或被误删～
 
-# gitlab-backup使用说明
+# gitlab-backup-script 使用说明
 
 通过使用python-gitlab调用gitlab API遍历repositories对其进行备份。  
 
