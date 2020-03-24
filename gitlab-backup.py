@@ -38,7 +38,7 @@ def backup_git_repo(logger):
 
 def backup_git_by_page(page, logger):
     git = get_gitlab_instance()
-    projects = git.projects.all(page=page, per_page=100)
+    projects = git.projects.list(page=page, per_page=100)
     git_data_path = GIT_SETTINGS.get('git_data_path')
     if 0 == len(projects):
         logger.info("All projects backup completed !")
